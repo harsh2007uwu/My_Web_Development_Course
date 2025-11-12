@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh | Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: #ff2c2c;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== Navbar ===== */
+header {
+  background: #111;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.logo span {
+  color: #ff2c2c;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff2c2c;
+}
+
+/* ===== Hero ===== */
+.hero {
+  height: 90vh;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text span {
+  color: #ff2c2c;
+}
+
+#typing {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  color: #ff2c2c;
+  min-height: 30px;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  background: #ff2c2c;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #ff2c2c;
+}
+
+.btn:hover {
+  background: #d81919;
+  box-shadow: 0 0 15px #ff2c2c;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.about p {
+  text-align: center;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* ===== Skills ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.skill {
+  background: #1a1a1a;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #ff2c2c;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.skill:hover {
+  background: #ff2c2c;
+  color: #fff;
+  box-shadow: 0 0 10px #ff2c2c;
+}
+
+/* ===== Projects ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #ff2c2c;
+}
+
+.project-card img {
+  width: 100%;
+  display: block;
+}
+
+.project-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* ===== Game Hub Custom Project Card ===== */
+.gamehub {
+  background: #0a0a0a;
+  border: 1px solid #ff2c2c;
+  box-shadow: 0 0 15px rgba(255, 44, 44, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.gamehub:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(255, 44, 44, 0.5);
+}
+
+.project-preview {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #111;
+}
+
+.project-preview img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gamehub:hover .project-preview img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.gamehub:hover .overlay {
+  opacity: 1;
+}
+
+.launch-btn {
+  background: #ff2c2c;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff2c2c;
+  transition: all 0.3s;
+}
+
+.launch-btn:hover {
+  background: #d81818;
+  box-shadow: 0 0 20px #ff2c2c;
+}
+
+.tech-stack {
+  margin: 0.8rem 0;
+}
+
+.tech-stack span {
+  display: inline-block;
+  border: 1px solid #ff2c2c;
+  color: #ff2c2c;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  transition: 0.3s;
+}
+
+.tech-stack span:hover {
+  background: #ff2c2c;
+  color: #fff;
+}
+
+.launch-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff2c2c;
+  font-family: 'Orbitron', sans-serif;
+  z-index: 1000;
+}
+
+.launch-window {
+  text-align: center;
+  border: 1px solid #ff2c2c;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #ff2c2c;
+}
+
+/* ===== Contact ===== */
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+.socials {
+  margin-top: 1rem;
+}
+
+.socials a {
+  color: #ff2c2c;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: white;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #888;
+  border-top: 1px solid #222;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">HARSH<span>.dev</span></h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h2>Hi, I'm <span>Harsh Dubey</span></h2>
+      <p id="typing"></p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a frontend developer passionate about crafting stunning, efficient, and user-friendly websites. 
+      My goal is to build digital experiences that combine creativity with functionality.
+    </p>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Git & GitHub</div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      
+      <!-- Game Hub Project -->
+      <div class="project-card gamehub">
+        <div class="project-preview">
+          <img src="https://www.shutterstock.com/image-vector/colorful-game-controller-icon-vector-600nw-2489844309.jpg" alt="Game Hub UI Preview">
+          <div class="overlay">
+            <button class="launch-btn">Launch</button>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Game Hub 🎮</h3>
+          <p>A futuristic gaming dashboard UI built entirely with <strong>HTML, CSS, and JavaScript</strong>. It features glowing red neon effects, hover animations, and a simulated launcher experience.</p>
+          <div class="tech-stack">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <a href="./game-hub-project/game.html" class="btn">View Demo</a>
+        </div>
+      </div>
+
+      <!-- Portfolio Project -->
+      <div class="project-card">
+        <img src="https://www.projectsmart.co.uk/img/project.png" alt="Portfolio">
+        <div class="project-info">
+          <h3>Portfolio</h3>
+          <p>This portfolio site built using <strong>HTML, CSS, and JavaScript</strong>, featuring dark mode, typing animation, and responsive design.</p>
+          <a href="./Nrml-portfolio/portfolio.html" target="_blank" class="btn">View Project</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Let’s collaborate or just say hi 👋</p>
+    <a href="mailto:youremail@example.com" class="btn">Email Me</a>
+    <div class="socials">
+      <a href="https://github.com/harsh2007uwu" target="_blank">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Harsh Dubey | Crafted with ❤️ and JavaScript</p>
+  </footer>
+
+  <script>
+  // ===== Typing Animation =====
+const typingText = document.getElementById("typing");
+const textArray = ["Frontend Developer", "JavaScript Enthusiast", "Problem Solver"];
+let index = 0, charIndex = 0, isDeleting = false;
+
+function typeEffect() {
+  const current = textArray[index];
+  typingText.textContent = current.slice(0, charIndex);
+
+  if (!isDeleting && charIndex < current.length) {
+    charIndex++;
+    setTimeout(typeEffect, 100);
+  } else if (isDeleting && charIndex > 0) {
+    charIndex--;
+    setTimeout(typeEffect, 60);
+  } else {
+    if (!isDeleting) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1000);
+    } else {
+      isDeleting = false;
+      index = (index + 1) % textArray.length;
+      setTimeout(typeEffect, 400);
+    }
+  }
+}
+typeEffect();
+
+// ===== Smooth Scroll =====
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// ===== GameHub Launch Simulation =====
+document.querySelectorAll('.launch-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const overlay = document.createElement('div');
+    overlay.classList.add('launch-screen');
+    overlay.innerHTML = `
+      <div class="launch-window">
+        <h2>🚀 Launching Game Hub...</h2>
+        <p>Preparing your gaming environment...</p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    setTimeout(() => overlay.remove(), 2000);
+  });
+});
+  </script>
+</body>
+</html>
+
+
+
