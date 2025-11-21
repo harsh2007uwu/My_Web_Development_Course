@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    width: 100px;
+    
+}
+.Logo-container{
+    display: flex;
+   align-items: center;
+}
+.logo-text{
+    position: relative;
+    top: -2px;
+}
+
+.bold{
+    font-weight: bold;
+}
+.location-container{
+    display: flex;
+   align-items: end;
+}
+.search-bar-left{
+    display: flex;
+   align-items: center;
+    background-color: rgb(220, 220, 220);
+}
+.search-bar-right{
+    display: flex;
+   align-items: center;
+    background-color: #f8bd69;
+}
+.search-bar-right:hover{
+    background-color: #f9b557;
+    cursor: pointer;
+}
+.search-bar{
+    display: flex;
+    align-items: center;
+}
+.flag{
+    width: 25px;
+}
+.flag-container{
+    display: flex;
+   align-items: center;
+    
+}
