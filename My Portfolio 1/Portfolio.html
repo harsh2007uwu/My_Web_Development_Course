@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harsh Dubey | Front-End Developer</title>
+  <title>Harsh Dubey | Full Stack Developer</title>
   <style>
     /* ---------- GLOBAL STYLES ---------- */
     :root {
@@ -15,13 +15,23 @@
       --text-color: #111111;
       --accent-color: #007bff;
       --card-bg: #f4f5f7;
+      --section-bg: #f9fafc;
+      --footer-bg: #eaeaea;
+      --border-color: #dcdcdc;
+      --hero-gradient-start: #f9f9f9;
+      --hero-gradient-end: #ffffff;
     }
 
     [data-theme="dark"] {
-      --bg-color: #0d1117;
-      --text-color: #c9d1d9;
-      --accent-color: #58a6ff;
-      --card-bg: #161b22;
+      --bg-color: #020617;           /* slate-950 vibe */
+      --text-color: #e5e7eb;         /* light gray text */
+      --accent-color: #38bdf8;       /* cyan-ish accent */
+      --card-bg: #020617;            /* match body, rely on shadows/borders */
+      --section-bg: #020617;
+      --footer-bg: #020617;
+      --border-color: #1f2933;
+      --hero-gradient-start: #020617;
+      --hero-gradient-end: #020617;
     }
 
     * {
@@ -35,7 +45,7 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     header {
@@ -47,7 +57,8 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .logo {
@@ -71,6 +82,8 @@
     .theme-toggle {
       cursor: pointer;
       font-size: 1.2rem;
+      margin-left: 20px;
+      user-select: none;
     }
 
     /* ---------- HERO SECTION ---------- */
@@ -81,7 +94,12 @@
       align-items: center;
       height: 90vh;
       text-align: center;
-      background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+      background: linear-gradient(
+        to bottom,
+        var(--hero-gradient-start),
+        var(--hero-gradient-end)
+      );
+      transition: background 0.3s ease;
     }
 
     .hero h1 {
@@ -116,7 +134,8 @@
     .about {
       padding: 80px 60px;
       text-align: center;
-      background: #f9fafc;
+      background: var(--section-bg);
+      transition: background-color 0.3s ease;
     }
 
     .about h2 {
@@ -135,6 +154,7 @@
     .skills {
       padding: 80px 60px;
       background: var(--card-bg);
+      transition: background-color 0.3s ease;
     }
 
     .skills h2 {
@@ -151,18 +171,24 @@
     }
 
     .skill {
-      background: #ffffff;
+      background: var(--bg-color);
       color: var(--text-color);
       padding: 10px 20px;
       border-radius: 20px;
       border: 1px solid var(--accent-color);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     /* ---------- PROJECTS SECTION ---------- */
+    a{
+      text-decoration: none;
+    }
     .projects {
       padding: 80px 60px;
       text-align: center;
+      background: var(--bg-color);
+      transition: background-color 0.3s ease;
     }
 
     .projects h2 {
@@ -180,13 +206,13 @@
       background: var(--card-bg);
       border-radius: 10px;
       padding: 25px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
 
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.5);
     }
 
     .project-card h3 {
@@ -200,6 +226,7 @@
       padding: 80px 60px;
       background: var(--card-bg);
       text-align: center;
+      transition: background-color 0.3s ease;
     }
 
     .contact h2 {
@@ -219,9 +246,10 @@
     footer {
       text-align: center;
       padding: 20px;
-      background: #eaeaea;
-      border-top: 1px solid #dcdcdc;
+      background: var(--footer-bg);
+      border-top: 1px solid var(--border-color);
       font-size: 0.95rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     /* ---------- RESPONSIVE ---------- */
@@ -258,13 +286,13 @@
 
   <section class="hero">
     <h1>Hi, I'm <span style="color:var(--accent-color)">Harsh Dubey</span></h1>
-    <h2 class="typing">Front-End Developer</h2>
+    <h2 class="typing">Full Stack Developer</h2>
   </section>
 
   <section class="about" id="about">
     <h2>About Me</h2>
     <p>
-      I'm a passionate Front-End Developer focused on crafting modern, responsive, and visually appealing websites. 
+      I'm a passionate Full Stack Developer focused on crafting modern, responsive, and visually appealing web applications. 
       My mission is to deliver seamless digital experiences through clean code and creative design.
     </p>
   </section>
@@ -276,6 +304,9 @@
       <div class="skill">CSS3</div>
       <div class="skill">JavaScript</div>
       <div class="skill">React.js</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Express.js</div>
+      <div class="skill">MongoDB</div>
       <div class="skill">Git / GitHub</div>
       <div class="skill">Responsive Design</div>
     </div>
@@ -284,33 +315,40 @@
   <section class="projects" id="projects">
     <h2>Projects</h2>
     <div class="project-grid">
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>A responsive personal portfolio showcasing skills, projects, and contact information.</p>
-      </div>
+        <a href="./Nrml-portfolio/portfolio.html" target="_blank">
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>A responsive personal portfolio showcasing skills, projects, and contact information.</p>
+        </div>
+
+    </a>
+    <!-- <a href="#" target="_blank">
       <div class="project-card">
         <h3>Task Manager App</h3>
         <p>A productivity web app built using JavaScript and Local Storage to manage daily tasks.</p>
       </div>
+
+    </a> -->
+    <a href="./game-hub-project/game.html" target="_blank">
       <div class="project-card">
-        <a href="http://" target="_blank" rel="noopener noreferrer"></a>
         <h3>Game Hub</h3>
-        
         <p>A fun web-based collection of mini-games created with HTML, CSS, and JavaScript.</p>
       </div>
+
+    </a>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <h2>Contact</h2>
     <p>Let's connect 👇</p>
-    <a href="mailto:harshdubey@example.com">📧 Email</a>
+    <a href="mailto:harshaf6969@gmail.com">📧 Email</a>
     <a href="https://github.com/harsh2007uwu" target="_blank">💻 GitHub</a>
-    <a href="https://www.linkedin.com" target="_blank">🔗 LinkedIn</a>
+    <a href="https://www.linkedin.com/in/harsh-dubey-402015342/" target="_blank">🔗 LinkedIn</a>
   </section>
 
   <footer>
-    <p>© 2025 Harsh Dubey | Front-End Developer</p>
+    <p>© 2025 Harsh Dubey | Full Stack Developer</p>
   </footer>
 
   <script>
